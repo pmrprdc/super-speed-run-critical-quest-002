@@ -5,19 +5,34 @@ import styled from 'styled-components';
 import './App.css';
 export default App;
 
+const Appdiv = styled.div`
+background-color: #f1f1f1;
+color: #333;
+font-family: sans-serif;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+`
+const DeleteButton = styled.button`
+  background: none;
+  border: none;
+  margin-left: 30px;
+  cursor: pointer;
+  font-size: 0.5rem;
+  margin-top: 20px;
+  font-weight: bold;
+  padding: 0;
+  transition: color 0.2s;
 
+  &:hover {
+    color: darkred;
+  }
+`;
 
 
   function App() {
-    const Appdiv = styled.div`
-  background-color: #f1f1f1;
-  color: #333;
-  font-family: sans-serif;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+  
 
 
     const [tasks, setTasks] = useState([]);
@@ -49,7 +64,7 @@ export default App;
       {tasks.map((task, index) => (
         <li key={index}>
           {task}
-          <button onClick={() => handleDelete(index)}>Delete</button>
+          <DeleteButton onClick={() => handleDelete(index)}>Delete</DeleteButton>
         </li>
       ))}
     </ul>
